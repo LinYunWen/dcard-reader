@@ -15,8 +15,10 @@ module.exports = {
     target: 'web',
     devtool: 'inline-source-map',
     devServer: {
+        hot: true,
         inline: true,
-        port: 7777
+        port: 8080,
+        open: true
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -72,6 +74,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
         new webpack.BannerPlugin({
             banner: "/*!! Dcard reader © Lin Yun Wen */",
             raw: true
