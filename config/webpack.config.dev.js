@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
     output: {
         path: path.resolve('./build'),
         filename: '[name].js',
-        publicPath: path.resolve('./build/public')
+        // publicPath: path.resolve('./build/public')
     },
     target: 'web',
     devtool: 'inline-source-map',
@@ -78,7 +79,11 @@ module.exports = {
         new webpack.BannerPlugin({
             banner: "/*!! Dcard reader © Lin Yun Wen */",
             raw: true
-        })
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/index.html',
+            filename: 'index.html'
+        }),
     ]
 };
 
