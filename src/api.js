@@ -8,8 +8,10 @@ export async function getPosts() {
                 }
             })
         ).json();
-        console.log(data);
+        // console.log(data);
+        return { data: data };
     } catch (error) {
-        console.log(error);
+        // console.log(error);
+        return { error: error };
     }
 }
