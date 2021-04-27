@@ -5,6 +5,9 @@
         ],
         "@babel/preset-react"
     ],
+    "plugins": [
+        "@babel/plugin-transform-runtime"
+    ],
     "env": {
         "production": {
             "plugins": [
