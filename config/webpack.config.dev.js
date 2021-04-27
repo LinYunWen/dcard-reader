@@ -19,7 +19,18 @@ module.exports = {
         hot: true,
         inline: true,
         port: 8080,
-        open: true
+        open: true,
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        },
+        proxy: {
+            '/api': {
+                target: 'https://www.dcard.tw/v2',
+                pathRewrite: {'^/api' : ''},
+                secure: false,
+                changeOrigin: true
+            }
+        }
     },
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx']
