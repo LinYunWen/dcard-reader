@@ -10,15 +10,49 @@ export class App extends React.Component {
       isError: false,
       posts: []
     }
+
+    this.scrollEventHandler = this.scrollEventHandler.bind(this);
   }
 
   async componentDidMount() {
+    window.addEventListener("scroll", this.scrollEventHandler)
+
     let { data, error } = await getPosts();
     this.setState({
       isLoading: false,
       isError: error ? true : false,
       posts: data ? data : []
     })
+  }
+
+
+  async scrollEventHandler(event) {
+    console.log(event);
+    let postComponents = document.querySelectorAll(".post");
+    let lastPostComponent = postComponents[postComponents.length - 1];
+    let eleRect = lastPostComponent.getBoundingClientRect();
+
+    let posts = this.state.posts;
+    if (eleRect.y < window.innerHeight) {
+      let { data, error } = await getPosts(posts[posts.length - 1].id);
+
+      this.setState({
+        isLoading: false,
+        isError: error ? true : false,
+        posts: data ? this.state.posts.concat(data) : this.state.posts
+      })
+    }
+  }
+
+  genPostComponents(posts) {
+    let start = this.state.posts.length;
+    let postComponents = posts.map((post, index) => {
+      return (<div key={start + index} className="post">
+        <div>{post.title}</div>
+        <div>{post.excerpt}</div>
+      </div>);
+    })
+    return postComponents;
   }
 
   render() {
@@ -37,14 +71,7 @@ export class App extends React.Component {
     } else {
       return (
         <div>
-          {
-            posts.map((post, index) => {
-              return (<div key={index}>
-                <div>{post.title}</div>
-                <div>{post.excerpt}</div>
-              </div>);
-            })
-          }
+          {this.genPostComponents(posts)}
         </div>
       );
     }

@@ -1,11 +1,13 @@
-export async function getPosts() {
+
+export async function getPosts(id) {
+    let url = "/api/posts?popular=true";
+    id && (url += `&before=${id}`);
+
+    // console.log(url);
     try {
         let data = await (
-            await fetch("/api/posts", {
-                method: 'GET',
-                qs: {
-                    popular: true
-                }
+            await fetch(url, {
+                method: 'GET'
             })
         ).json();
         // console.log(data);
