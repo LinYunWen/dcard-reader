@@ -1,5 +1,7 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
+import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 import { getPosts } from './api';
 import { PostCard } from './PostCard';
@@ -73,11 +75,17 @@ export class App extends React.Component {
       return <div>There is no post.</div>
     } else {
       return (
-        <Container>
-          <div>
-            {this.genPostComponents(posts)}
-          </div>
-        </Container>
+        <React.Fragment>
+          <CssBaseline />
+          <AppBar>
+            <h5 style={{ padding: "0 5%"}}>Dcard Reader</h5>
+          </AppBar>
+          <Container style={{ marginTop: "60px"}}>
+            <div>
+              {this.genPostComponents(posts)}
+            </div>
+          </Container>
+        </React.Fragment>
       );
     }
   }
