@@ -1,6 +1,8 @@
 import React from 'react';
+import Container from '@material-ui/core/Container';
 import './App.css';
 import { getPosts } from './api';
+import { PostCard } from './PostCard';
 
 export class App extends React.Component {
   constructor(props) {
@@ -27,7 +29,7 @@ export class App extends React.Component {
 
 
   async scrollEventHandler(event) {
-    console.log(event);
+    // console.log(event);
     let postComponents = document.querySelectorAll(".post");
     let lastPostComponent = postComponents[postComponents.length - 1];
     let eleRect = lastPostComponent.getBoundingClientRect();
@@ -47,10 +49,11 @@ export class App extends React.Component {
   genPostComponents(posts) {
     let start = this.state.posts.length;
     let postComponents = posts.map((post, index) => {
-      return (<div key={start + index} className="post">
-        <div>{post.title}</div>
-        <div>{post.excerpt}</div>
-      </div>);
+    //   return (<div key={start + index} className="post">
+    //     <div>{post.title}</div>
+    //     <div>{post.excerpt}</div>
+    //   </div>);
+        return (<PostCard key={start + index} post={post} />)
     })
     return postComponents;
   }
@@ -70,9 +73,11 @@ export class App extends React.Component {
       return <div>There is no post.</div>
     } else {
       return (
-        <div>
-          {this.genPostComponents(posts)}
-        </div>
+        <Container>
+          <div>
+            {this.genPostComponents(posts)}
+          </div>
+        </Container>
       );
     }
   }
