@@ -78,7 +78,7 @@ export class App extends React.Component {
         <React.Fragment>
           <CssBaseline />
           <AppBar>
-            <h5 style={{ padding: "0 5%"}}>Dcard Reader</h5>
+            <span style={{ padding: "10px 5%", fontWeight: "bold", fontSize: "20px" }}>Dcard Reader</span>
           </AppBar>
           <Container style={{ marginTop: "60px"}}>
             <div>
