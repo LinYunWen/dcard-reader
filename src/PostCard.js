@@ -1,4 +1,7 @@
+import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import React from 'react';
 
@@ -50,16 +53,21 @@ export class PostCard extends React.Component {
         <Paper style={{ marginBottom: "10px", padding: "20px" }}>
             <Grid container>
                 <Grid item sm={3}>
-                    <div style={{ height: "130px", overflow: "hidden"}}>
+                    <div style={{ height: "100px", overflow: "hidden"}}>
                         <img style={{ maxWidth: "150px" }} src={this.post.mediaMeta[0]?.thumbnail}></img>
                     </div>
                 </Grid>
                 <Grid item sm={9} container>
-                    <Grid item>
-                        <span style={{ fontSize: "20px", fontWeight: "bold" }}>{this.post.title}</span>
+                    <Grid item container wrap="nowrap">
+                        <Grid item sm={10} zeroMinWidth>
+                            <Typography style={{ fontSize: "20px", fontWeight: "bold" }} noWrap>{this.post.title}</Typography>
+                        </Grid>
+                        <Grid item sm={2} style={{ textAlign: "right" }}>
+                            <Chip size="small" label={this.post.forumName} />
+                        </Grid>
                     </Grid>
                     <Grid item>
-                        <span style={{ color: "grey" }}>{this.post.excerpt}</span>
+                        <Typography style={{ color: "grey", display: "-webkit-box", "-webkit-box-orient": "vertical", "-webkit-line-clamp": "2", "overflow": "hidden" }}>{this.post.excerpt}</Typography>
                     </Grid>
                     <Grid item>
                         <Grid item container spacing={2}>
