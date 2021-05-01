@@ -2,11 +2,12 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import './App.css';
-import { getPosts } from './api';
 import { PostCard } from './PostCard';
 import { WarnAndErrorPage } from './WarnAndErrorPage';
 import { LoadPage } from './LoadPage';
+import { getPosts } from './api';
+import './app.scss';
+import "./base.scss";
 
 export class App extends React.Component {
   constructor(props) {
@@ -27,7 +28,9 @@ export class App extends React.Component {
     this.setState({
       isLoading: false,
       isError: error ? true : false,
+      // isError: true,
       posts: data ? data : []
+      // posts: []
     })
   }
 
@@ -80,9 +83,9 @@ export class App extends React.Component {
       <React.Fragment>
         <CssBaseline />
         <AppBar>
-          <span style={{ padding: "10px 5%", fontWeight: "bold", fontSize: "20px" }}>Dcard Reader</span>
+          <span className="bold app-bar-title">Dcard Reader</span>
         </AppBar>
-        <Container style={{ marginTop: "60px"}} maxWidth="md">
+        <Container className="margin-top-60" maxWidth="md">
           {this.genContent()}
         </Container>
       </React.Fragment>

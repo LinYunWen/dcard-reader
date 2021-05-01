@@ -20,11 +20,13 @@
     "css-loader": "^5.2.4",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
+    "node-sass": "^5.0.0",
     "postcss-loader": "^5.2.0",
+    "sass": "^1.32.12",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
-    "webpack": "^5.35.0",
+    "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
@@ -34,7 +36,6 @@
     "@material-ui/lab": "*",
     "fontsource-roboto": "^4.0.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "sass": "^1.32.12"
+    "react-dom": "^17.0.2"
   }
 }

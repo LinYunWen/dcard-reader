@@ -3,6 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
+import './card.scss';
 
 export class LoadPage extends React.Component {
   constructor(props) {
@@ -11,10 +12,10 @@ export class LoadPage extends React.Component {
 
   render() {
       return (
-        <Paper style={{ marginBottom: "10px", padding: "20px" }}>
+        <Paper className="card-paper">
             <Grid container spacing={1}>
-                <Grid item sm={3} style={{ height: "140px" }}>
-                  <Skeleton animation={"wave"} variant="rect" style={{ height: "100%" }} />
+                <Grid item sm={3} className="height-140">
+                  <Skeleton animation={"wave"} variant="rect" height="100%" />
                 </Grid>
                 <Grid item sm={9} container>
                     <Grid item container>

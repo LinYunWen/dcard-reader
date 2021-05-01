@@ -1,0 +1,49 @@
+.card-paper {
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.gender-bar {
+    height: 140px;
+    border-left: 10px solid;
+    float: left;
+    z-index: 5;
+    position: absolute;
+}
+
+.lightblue {
+    border-color: lightblue;
+}
+
+.pink {
+    border-color: pink;
+}
+
+.card-image {
+    div {
+        height: 100px;
+        overflow: hidden;
+    }
+
+    img {
+        max-width: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.card-title {
+    font-size: 20px;
+}
+
+.card-tag {
+    text-align: right;
+}
+
+.card-excerpt {
+    color: grey;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}

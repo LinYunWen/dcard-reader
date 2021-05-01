@@ -1,8 +1,10 @@
+import React from 'react';
 import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import React from 'react';
+import './base.scss';
+import './card.scss';
 
 export class PostCard extends React.Component {
   constructor(props) {
@@ -30,14 +32,7 @@ export class PostCard extends React.Component {
   }
 
   addGender(gender) {
-    let style = {
-        height: "140px",
-        borderLeft: gender === "F" ? "10px solid pink" : "10px solid lightblue",
-        float: "left",
-        zIndex: 5,
-        position: "absolute"
-    }
-    return (<div style={style}></div>);
+    return (<div className={`gender-bar${gender === "F" ? " pink" : " lightblue"}`}></div>);
   }
 
   render() {
@@ -45,24 +40,24 @@ export class PostCard extends React.Component {
     return (
     <div className="post">
         {this.addGender(this.post.gender)}
-        <Paper style={{ marginBottom: "10px", padding: "20px" }}>
+        <Paper className="card-paper">
             <Grid container spacing={1}>
-                <Grid item sm={3}>
-                    <div style={{ height: "100px", overflow: "hidden"}}>
-                        <img style={{ maxWidth: "150px", display: "block", margin: "0 auto" }} src={this.post.mediaMeta[0]? this.post.mediaMeta[0].thumbnail : "https://yt3.ggpht.com/ytc/AAUvwng2t8wqSwB7wanFnBDKyakK8k5Bbj2A1KXfnZo7=s88-c-k-c0x00ffffff-no-rj"}></img>
+                <Grid item sm={3} className="card-image">
+                    <div>
+                        <img src={this.post.mediaMeta[0]? this.post.mediaMeta[0].thumbnail : "https://yt3.ggpht.com/ytc/AAUvwng2t8wqSwB7wanFnBDKyakK8k5Bbj2A1KXfnZo7=s88-c-k-c0x00ffffff-no-rj"}></img>
                     </div>
                 </Grid>
                 <Grid item sm={9} container>
                     <Grid item container wrap="nowrap">
                         <Grid item sm={10} zeroMinWidth>
-                            <Typography style={{ fontSize: "20px", fontWeight: "bold" }} noWrap>{this.post.title}</Typography>
+                            <Typography className="card-title bold" noWrap>{this.post.title}</Typography>
                         </Grid>
-                        <Grid item sm={2} style={{ textAlign: "right" }}>
+                        <Grid item sm={2} className="card-tag">
                             <Chip size="small" label={this.post.forumName} />
                         </Grid>
                     </Grid>
                     <Grid item>
-                        <Typography style={{ color: "grey", display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: "2", overflow: "hidden" }}>{this.post.excerpt}</Typography>
+                        <Typography className="card-excerpt">{this.post.excerpt}</Typography>
                     </Grid>
                     <Grid item container spacing={2}>
                         <Grid item>
