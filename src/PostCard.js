@@ -49,7 +49,7 @@ export class PostCard extends React.Component {
             <Grid container spacing={1}>
                 <Grid item sm={3}>
                     <div style={{ height: "100px", overflow: "hidden"}}>
-                        <img style={{ maxWidth: "150px", display: "block", margin: "0 auto" }} src={this.post.mediaMeta[0]?.thumbnail}></img>
+                        <img style={{ maxWidth: "150px", display: "block", margin: "0 auto" }} src={this.post.mediaMeta[0]? this.post.mediaMeta[0].thumbnail : "https://yt3.ggpht.com/ytc/AAUvwng2t8wqSwB7wanFnBDKyakK8k5Bbj2A1KXfnZo7=s88-c-k-c0x00ffffff-no-rj"}></img>
                     </div>
                 </Grid>
                 <Grid item sm={9} container>
