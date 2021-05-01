@@ -1,7 +1,4 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -14,13 +11,7 @@ export class LoadPage extends React.Component {
 
   render() {
       return (
-        <React.Fragment>
-          <CssBaseline />
-          <AppBar>
-            <span style={{ padding: "10px 5%", fontWeight: "bold", fontSize: "20px" }}>Dcard Reader</span>
-          </AppBar>
-          <Container style={{ marginTop: "60px"}} maxWidth="md">
-            <Paper style={{ marginBottom: "10px", padding: "20px" }}>
+        <Paper style={{ marginBottom: "10px", padding: "20px" }}>
             <Grid container spacing={1}>
                 <Grid item sm={3} style={{ height: "140px" }}>
                   <Skeleton animation={"wave"} variant="rect" style={{ height: "100%" }} />
@@ -53,8 +44,6 @@ export class LoadPage extends React.Component {
                 </Grid>
             </Grid>
         </Paper>
-          </Container>
-        </React.Fragment>
       );
     }
 }

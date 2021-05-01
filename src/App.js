@@ -58,34 +58,35 @@ export class App extends React.Component {
     return postComponents;
   }
 
-  render() {
+  genContent() {
     let { isLoading, isError, posts } = this.state;
-    // console.log(posts, this.state, this.state.posts);
 
-    if (isError) {
-      return <WarnAndErrorPage type="error" />;
-    }
     if (isLoading) {
       return <LoadPage />
-    }
-
-    if (posts.length === 0) {
-      return <WarnAndErrorPage type="warn" />
     } else {
-      return (
-        <React.Fragment>
-          <CssBaseline />
-          <AppBar>
-            <span style={{ padding: "10px 5%", fontWeight: "bold", fontSize: "20px" }}>Dcard Reader</span>
-          </AppBar>
-          <Container style={{ marginTop: "60px"}} maxWidth="md">
-            <div>
-              {this.genPostComponents(posts)}
-            </div>
-          </Container>
-        </React.Fragment>
-      );
+      if (isError) return <WarnAndErrorPage type="error" />;
+      else {
+        if (posts.length === 0) {
+          return <WarnAndErrorPage type="warn" />
+        } else {
+          return this.genPostComponents(posts);
+        }
+      }
     }
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <CssBaseline />
+        <AppBar>
+          <span style={{ padding: "10px 5%", fontWeight: "bold", fontSize: "20px" }}>Dcard Reader</span>
+        </AppBar>
+        <Container style={{ marginTop: "60px"}} maxWidth="md">
+          {this.genContent()}
+        </Container>
+      </React.Fragment>
+    );
   }
 }
 
