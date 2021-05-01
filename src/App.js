@@ -6,6 +6,8 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
+import CancelIcon from '@material-ui/icons/Cancel';
+import WarningIcon from '@material-ui/icons/Warning';
 import './App.css';
 import { getPosts } from './api';
 import { PostCard } from './PostCard';
@@ -69,7 +71,28 @@ export class App extends React.Component {
     // console.log(posts, this.state, this.state.posts);
 
     if (isError) {
-      return <div>something wrong. Please try again.</div>
+      return (
+        <React.Fragment>
+          <CssBaseline />
+          <AppBar>
+            <span style={{ padding: "10px 5%", fontWeight: "bold", fontSize: "20px" }}>Dcard Reader</span>
+          </AppBar>
+          <Container style={{ marginTop: "60px"}} maxWidth="md">
+            <Grid container spacing={2} style={{ position: "absolute", top: "40vh" }}>
+              <Grid item sm={1}></Grid>
+              <Grid item sm={2}>
+                <div style={{ width: 100, height: 100, margin: "0 auto" }}>
+                  <CancelIcon style={{ fontSize: 100, color: "red" }} />
+                </div>
+              </Grid>
+              <Grid item sm={8} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <Typography variant={"h4"} style={{ color: "red", lineHeight: "unset" }}>There are something wrong. Please check your network and try again.</Typography>
+              </Grid>
+              <Grid item sm={1}></Grid>
+            </Grid>
+          </Container>
+        </React.Fragment>
+      )
     }
     if (isLoading) {
       return (
@@ -118,7 +141,28 @@ export class App extends React.Component {
     }
 
     if (posts.length === 0) {
-      return <div>There is no post.</div>
+      return (
+        <React.Fragment>
+          <CssBaseline />
+          <AppBar>
+            <span style={{ padding: "10px 5%", fontWeight: "bold", fontSize: "20px" }}>Dcard Reader</span>
+          </AppBar>
+          <Container style={{ marginTop: "60px"}} maxWidth="md">
+            <Grid container spacing={2} style={{ position: "absolute", top: "40vh" }}>
+              <Grid item sm={1}></Grid>
+              <Grid item sm={2}>
+                <div style={{ width: 100, height: 100, margin: "0 auto" }}>
+                  <WarningIcon style={{ fontSize: 100, color: "yellow" }} />
+                </div>
+              </Grid>
+              <Grid item sm={8} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <Typography variant={"h4"} style={{ color: "yellow", lineHeight: "unset" }}>There is no post.</Typography>
+              </Grid>
+              <Grid item sm={1}></Grid>
+            </Grid>
+          </Container>
+        </React.Fragment>
+      )
     } else {
       return (
         <React.Fragment>
