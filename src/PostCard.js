@@ -32,15 +32,11 @@ export class PostCard extends React.Component {
 
   addGender(gender) {
     let style = {
-        width: 0,
-        height: 0,
-        borderTop: "0px solid transparent",
-        borderLeft: gender === "F" ? "80px solid pink" : "80px solid lightblue",
-        borderBottom: "80px solid transparent",
+        height: "140px",
+        borderLeft: gender === "F" ? "10px solid pink" : "10px solid lightblue",
         float: "left",
         zIndex: 5,
-        position: "absolute",
-        filter: "drop-shadow(2px 3px 3px grey)"
+        position: "absolute"
     }
     return (<div style={style}></div>);
   }
@@ -51,10 +47,10 @@ export class PostCard extends React.Component {
     <div className="post">
         {this.addGender(this.post.gender)}
         <Paper style={{ marginBottom: "10px", padding: "20px" }}>
-            <Grid container>
+            <Grid container spacing={1}>
                 <Grid item sm={3}>
                     <div style={{ height: "100px", overflow: "hidden"}}>
-                        <img style={{ maxWidth: "150px" }} src={this.post.mediaMeta[0]?.thumbnail}></img>
+                        <img style={{ maxWidth: "150px", display: "block", margin: "0 auto" }} src={this.post.mediaMeta[0]?.thumbnail}></img>
                     </div>
                 </Grid>
                 <Grid item sm={9} container>
@@ -67,18 +63,16 @@ export class PostCard extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid item>
-                        <Typography style={{ color: "grey", display: "-webkit-box", "-webkit-box-orient": "vertical", "-webkit-line-clamp": "2", "overflow": "hidden" }}>{this.post.excerpt}</Typography>
+                        <Typography style={{ color: "grey", display: "-webkit-box", WebkitBoxOrient: "vertical", WebkitLineClamp: "2", overflow: "hidden" }}>{this.post.excerpt}</Typography>
                     </Grid>
-                    <Grid item>
-                        <Grid item container spacing={2}>
-                            <Grid item>
-                                <Grid container spacing={1}>
-                                    <Grid item>💬</Grid>
-                                    <Grid item>{this.post.commentCount}</Grid>
-                                </Grid>
+                    <Grid item container spacing={2}>
+                        <Grid item>
+                            <Grid container spacing={1}>
+                                <Grid item>💬</Grid>
+                                <Grid item>{this.post.commentCount}</Grid>
                             </Grid>
-                            {this.genReactions(this.post.reactions)}
                         </Grid>
+                        {this.genReactions(this.post.reactions)}
                     </Grid>
                 </Grid>
             </Grid>

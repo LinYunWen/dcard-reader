@@ -80,7 +80,7 @@ export class App extends React.Component {
           <AppBar>
             <span style={{ padding: "10px 5%", fontWeight: "bold", fontSize: "20px" }}>Dcard Reader</span>
           </AppBar>
-          <Container style={{ marginTop: "60px"}}>
+          <Container style={{ marginTop: "60px"}} maxWidth="md">
             <div>
               {this.genPostComponents(posts)}
             </div>
