@@ -5,7 +5,7 @@
 ## How to use
 1. git clone from https://github.com/LinYunWen/dcard-reader
 2. cd into `dcard-reader` folder and run `npm i`
-3. run `npm start dev` for automatically starting server and opening browser
+3. run `npm start` for automatically starting server and opening browser
 
 ## Description
 ### File Structure
