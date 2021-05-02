@@ -12,7 +12,7 @@ export class LoadCard extends React.Component {
 
   render() {
       return (
-        <Paper className="card-paper">
+        <Paper className="card-paper" id={this.props.lastCard ? "last-card" : ""}>
             <Grid container spacing={1}>
                 <Grid item sm={3} className="height-140">
                   <Skeleton animation={"wave"} variant="rect" height="100%" />

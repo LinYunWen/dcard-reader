@@ -11,10 +11,10 @@ export class Content extends React.Component {
   }
 
   genPostCards(posts) {
-    let start = this.props.posts.length;
     let postComponents = posts.map((post, index) => {
-        return (<PostCard key={start + index} post={post} />)
+        return (<PostCard key={index} post={post} />)
     })
+    postComponents.push(<LoadCard key={posts.length} lastCard={true}/>);
     return postComponents;
   }
 
@@ -25,7 +25,7 @@ export class Content extends React.Component {
   }
 
   genContent() {
-    let { isLoading, isError, posts } = this.props;
+    let { isLoading, isError, posts } = this.props.state;
 
     if (isLoading) {
       return this.genLoadCards()

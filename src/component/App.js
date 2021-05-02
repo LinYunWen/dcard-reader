@@ -10,6 +10,7 @@ export class App extends React.Component {
     super(props);
     this.state = {
       isLoading: true,
+      appendLoading: false,
       isError: false,
       posts: []
     }
@@ -32,20 +33,20 @@ export class App extends React.Component {
   }
 
   async scrollEventHandler(event) {
-    // console.log(event);
-    if (this.state.isLoading) return;
+    if (this.state.appendLoading) return;
 
-    let postComponents = document.querySelectorAll(".post");
-    if (postComponents.length === 0) return;
-    let lastPostComponent = postComponents[postComponents.length - 1];
-    let eleRect = lastPostComponent.getBoundingClientRect();
+    let lastCard = document.querySelector("#last-card");
+    if (lastCard === null) return;
+    let eleRect = lastCard.getBoundingClientRect();
 
     let posts = this.state.posts;
     if (eleRect.y < window.innerHeight) {
+      this.setState({ appendLoading: true });
       let { data, error } = await getPosts(posts[posts.length - 1].id);
 
       this.setState({
         isLoading: false,
+        appendLoading: false,
         isError: error ? true : false,
         posts: data ? this.state.posts.concat(data) : this.state.posts
       })
@@ -59,7 +60,7 @@ export class App extends React.Component {
         <AppBar>
           <span className="bold app-bar-title">Dcard Reader</span>
         </AppBar>
-        <Content isError={this.state.isError} isLoading={this.state.isLoading} posts={this.state.posts} />
+        <Content state={this.state}/>
       </React.Fragment>
     );
   }
