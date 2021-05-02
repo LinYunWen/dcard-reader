@@ -35,12 +35,12 @@
 |- .package-lock.json
 ```
 - src
-> - There are the source codes.
+  > - There are the source codes.
   - component
-  > - Put React component here
+    > - Put React component here
     - App.js
       - This is the top component on the structure. Only defined the basic UI like app bar.
-      - But I implemented first api request and infinite scroll function here. (see detail)
+      - But I implemented first api request and infinite scroll function here. ([see detail](#infinite-scrolling))
     - Content.js
       - It is the container for the content of the website.
       - Not only generate post cards or loading cards but also the warning and error content.
@@ -51,7 +51,7 @@
     - WarnAndErrorContent.js
       - It will show the message when there is no post or catch error on api requesting.
   - scss
-  > - Put scss files here
+    > - Put scss files here
   - api.js
     - The api for getting posts from Dcard.
   - index.html
@@ -61,11 +61,12 @@
     - This is the entry point of codes of the website.
     - React root is here.
 - build
-> - According my webpack setting, the compiled file will be here.
+  > - According my webpack setting, the compiled file will be here.
+
 - config
-> - The webpack setting
+  > - The webpack setting
   - webpack.config.dev.js
-    - Set development environment and website entry point. At the same time, I set proxy for dealing with CORS problem here. (see detail)
+    - Set development environment and website entry point. At the same time, I set proxy for dealing with CORS problem here. ([see detail](#webpack-setting))
 - .babelrc
   - It is the babel setting.
 - .gitignore
@@ -95,7 +96,7 @@
 ### normal
 ![](https://i.imgur.com/53VcLmT.png)
 ### infinite scroll
-![](https://imgur.com/AVNCseB)
+![](https://imgur.com/hpBnXn7.gif)
 ### no post
 ![](https://i.imgur.com/F54VWP5.png)
 ### error on qpi request
