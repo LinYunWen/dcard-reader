@@ -2,8 +2,8 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Content } from './Content';
-import { getPosts } from './api';
-import './app.scss';
+import { getPosts } from '../api';
+import '../scss/app.scss';
 
 export class App extends React.Component {
   constructor(props) {

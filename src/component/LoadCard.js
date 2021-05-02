@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
-import './card.scss';
+import '../scss/card.scss';
 
 export class LoadCard extends React.Component {
   constructor(props) {

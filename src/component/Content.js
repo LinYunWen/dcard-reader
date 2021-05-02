@@ -3,7 +3,7 @@ import Container from '@material-ui/core/Container';
 import { PostCard } from './PostCard';
 import { WarnAndErrorContent } from './WarnAndErrorContent';
 import { LoadCard } from './LoadCard';
-import "./base.scss";
+import "../scss/base.scss";
 
 export class Content extends React.Component {
   constructor(props) {

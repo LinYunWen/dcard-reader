@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import CancelIcon from '@material-ui/icons/Cancel';
 import WarningIcon from '@material-ui/icons/Warning';
-import './app.scss';
+import '../scss/app.scss';
 
 export class WarnAndErrorContent extends React.Component {
   constructor(props) {

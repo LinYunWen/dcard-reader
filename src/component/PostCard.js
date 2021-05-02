@@ -3,7 +3,7 @@ import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import './card.scss';
+import '../scss/card.scss';
 
 export class PostCard extends React.Component {
   constructor(props) {
