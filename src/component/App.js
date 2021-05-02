@@ -1,9 +1,9 @@
-import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { Content } from './Content';
-import { getPosts } from '../api';
-import '../scss/app.scss';
+import React from "react";
+import AppBar from "@material-ui/core/AppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { Content } from "./Content";
+import { getPosts } from "../api";
+import "../scss/app.scss";
 
 export class App extends React.Component {
   constructor(props) {
@@ -12,14 +12,14 @@ export class App extends React.Component {
       isLoading: true,
       appendLoading: false,
       isError: false,
-      posts: []
-    }
+      posts: [],
+    };
 
     this.scrollEventHandler = this.scrollEventHandler.bind(this);
   }
 
   async componentDidMount() {
-    window.addEventListener("scroll", this.scrollEventHandler)
+    window.addEventListener("scroll", this.scrollEventHandler);
 
     let { data, error } = await getPosts();
     this.setState({
@@ -27,9 +27,9 @@ export class App extends React.Component {
       // isLoading: true,
       isError: error ? true : false,
       // isError: true,
-      posts: data ? data : []
+      posts: data ? data : [],
       // posts: []
-    })
+    });
   }
 
   async scrollEventHandler(event) {
@@ -48,8 +48,8 @@ export class App extends React.Component {
         isLoading: false,
         appendLoading: false,
         isError: error ? true : false,
-        posts: data ? this.state.posts.concat(data) : this.state.posts
-      })
+        posts: data ? this.state.posts.concat(data) : this.state.posts,
+      });
     }
   }
 
@@ -60,9 +60,8 @@ export class App extends React.Component {
         <AppBar>
           <span className="bold app-bar-title">Dcard Reader</span>
         </AppBar>
-        <Content state={this.state}/>
+        <Content state={this.state} />
       </React.Fragment>
     );
   }
 }
-
