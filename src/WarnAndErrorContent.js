@@ -6,7 +6,7 @@ import WarningIcon from '@material-ui/icons/Warning';
 import './app.scss';
 import './base.scss';
 
-export class WarnAndErrorPage extends React.Component {
+export class WarnAndErrorContent extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -14,7 +14,7 @@ export class WarnAndErrorPage extends React.Component {
   render() {
     let type = this.props.type;
     return (
-        <Grid container spacing={2} style={{ position: "absolute", top: "40vh" }}>
+        <Grid container spacing={2} className="center-content">
             <Grid item sm={1}></Grid>
             <Grid item sm={2}>
                 <div className="center-icon">

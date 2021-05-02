@@ -5,7 +5,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
 import './card.scss';
 
-export class LoadPage extends React.Component {
+export class LoadCard extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -45,7 +45,7 @@ export class LoadPage extends React.Component {
                 </Grid>
             </Grid>
         </Paper>
-      );
+    );
     }
 }
 

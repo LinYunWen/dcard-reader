@@ -1,10 +1,7 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { PostCard } from './PostCard';
-import { WarnAndErrorPage } from './WarnAndErrorPage';
-import { LoadPage } from './LoadPage';
+import { Content } from './Content';
 import { getPosts } from './api';
 import './app.scss';
 import "./base.scss";
@@ -27,13 +24,13 @@ export class App extends React.Component {
     let { data, error } = await getPosts();
     this.setState({
       isLoading: false,
+      // isLoading: true,
       isError: error ? true : false,
       // isError: true,
       posts: data ? data : []
       // posts: []
     })
   }
-
 
   async scrollEventHandler(event) {
     // console.log(event);
@@ -53,31 +50,6 @@ export class App extends React.Component {
     }
   }
 
-  genPostComponents(posts) {
-    let start = this.state.posts.length;
-    let postComponents = posts.map((post, index) => {
-        return (<PostCard key={start + index} post={post} />)
-    })
-    return postComponents;
-  }
-
-  genContent() {
-    let { isLoading, isError, posts } = this.state;
-
-    if (isLoading) {
-      return <LoadPage />
-    } else {
-      if (isError) return <WarnAndErrorPage type="error" />;
-      else {
-        if (posts.length === 0) {
-          return <WarnAndErrorPage type="warn" />
-        } else {
-          return this.genPostComponents(posts);
-        }
-      }
-    }
-  }
-
   render() {
     return (
       <React.Fragment>
@@ -85,9 +57,7 @@ export class App extends React.Component {
         <AppBar>
           <span className="bold app-bar-title">Dcard Reader</span>
         </AppBar>
-        <Container className="margin-top-60" maxWidth="md">
-          {this.genContent()}
-        </Container>
+        <Content isError={this.state.isError} isLoading={this.state.isLoading} posts={this.state.posts} />
       </React.Fragment>
     );
   }
