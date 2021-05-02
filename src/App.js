@@ -34,7 +34,10 @@ export class App extends React.Component {
 
   async scrollEventHandler(event) {
     // console.log(event);
+    if (this.state.isLoading) return;
+
     let postComponents = document.querySelectorAll(".post");
+    if (postComponents.length === 0) return;
     let lastPostComponent = postComponents[postComponents.length - 1];
     let eleRect = lastPostComponent.getBoundingClientRect();
 
