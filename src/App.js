@@ -4,7 +4,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Content } from './Content';
 import { getPosts } from './api';
 import './app.scss';
-import "./base.scss";
 
 export class App extends React.Component {
   constructor(props) {

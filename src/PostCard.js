@@ -3,7 +3,6 @@ import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-import './base.scss';
 import './card.scss';
 
 export class PostCard extends React.Component {
@@ -36,7 +35,7 @@ export class PostCard extends React.Component {
   }
 
   render() {
-    console.log(this.post, this.post.mediaMeta, this.post.mediaMeta[0])
+    // console.log(this.post, this.post.mediaMeta, this.post.mediaMeta[0])
     return (
     <div className="post">
         {this.addGender(this.post.gender)}
