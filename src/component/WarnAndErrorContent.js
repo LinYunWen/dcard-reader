@@ -13,7 +13,7 @@ export class WarnAndErrorContent extends React.Component {
   render() {
     let type = this.props.type;
     return (
-      <Grid container spacing={2} className="center-content">
+      <Grid container spacing={2} style={{ marginTop: "40vh" }}>
         <Grid item sm={1}></Grid>
         <Grid item sm={2}>
           <div className="center-icon">
